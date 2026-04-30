@@ -1,0 +1,8 @@
+models/
+nemo_ctc_export/
+nemo_experiments/
+data/
+__pycache__/
+.vscode/
+wheels/
+model/

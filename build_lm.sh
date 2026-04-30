@@ -1,0 +1,2 @@
+/mnt/data/workspace/research/convo_pipe/models/kenlm/build/bin/lmplz -o 6 --prune 0 1 1 1 2 2 -T /tmp < data/magic_data/train_lm.txt > lm/model.arpa
+/mnt/data/workspace/research/convo_pipe/models/kenlm/build/bin/build_binary trie lm/model.arpa lm/model.bin
