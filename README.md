@@ -77,5 +77,5 @@ python infer_rnnt.py --beam-size 1 --use-beam
 ```bash
 cd submission
 
-cp ../models/conformer_ctc.ckpt ./model/
+cp ../models/conformer-averaged.ckpt ./model/conformer-averaged.ckpt
 ```
