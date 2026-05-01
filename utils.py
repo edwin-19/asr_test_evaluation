@@ -1,6 +1,6 @@
 from pathlib import Path
 import copy
-import torch
+import re
 
 from tqdm import tqdm
 import editdistance
@@ -151,3 +151,16 @@ def parse_command_config(argv, original_config=None):
 def read_manifest(manifest_path):
     with open(manifest_path, 'r') as manifest:
         return [json.loads(mani) for mani in manifest.readlines()]
+    
+
+def clean_punctuation_spacing(text):
+    # \s+ looks for one or more whitespace characters
+    # (?=[.,!?]) is a lookahead that ensures they are followed by punctuation
+    # This replaces "word ." with "word."
+    cleaned_text = re.sub(r'\s+([.,!?])', r'\1', text)
+    
+    # Optional: Ensure there is exactly one space AFTER punctuation if it's not the end of the string
+    cleaned_text = re.sub(r'([.,!?])(?=[^\s])', r'\1 ', cleaned_text)
+    cleaned_text = cleaned_text.replace('-', ' ')
+    
+    return cleaned_text.strip()

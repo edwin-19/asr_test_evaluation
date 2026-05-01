@@ -6,6 +6,7 @@ import numpy as np
 import soundfile as sf
 import torch
 import itertools as it
+import re
 
 from nemo.collections.asr.models import EncDecCTCModelBPE
 from omegaconf import OmegaConf
@@ -39,6 +40,18 @@ def viterbi(asr_model, predictions):
         text = asr_model.decoding.tokenizer.ids_to_text(tokens)
         texts.append(text)
     return texts
+
+def clean_punctuation_spacing(text):
+    # \s+ looks for one or more whitespace characters
+    # (?=[.,!?]) is a lookahead that ensures they are followed by punctuation
+    # This replaces "word ." with "word."
+    cleaned_text = re.sub(r'\s+([.,!?])', r'\1', text)
+    
+    # Optional: Ensure there is exactly one space AFTER punctuation if it's not the end of the string
+    cleaned_text = re.sub(r'([.,!?])(?=[^\s])', r'\1 ', cleaned_text)
+    cleaned_text = cleaned_text.replace('-', ' ')
+    
+    return cleaned_text.strip()
 
 def infer(asr_model, audio_array, device):
     audio = torch.tensor(audio_array)
@@ -101,7 +114,7 @@ def main() -> None:
 
         predictions.append({
             "file_id": file_id,
-            "text": pred_text,
+            "text": clean_punctuation_spacing(pred_text),
             "inference_time": round(elapsed, 4),
         })
 

@@ -27,17 +27,28 @@ python train_ctc.py
 bash build_lm.sh
 ```
 
+3.8 Average Checkpoint, average out the top 5 checkpoints for better scoring
+```bash
+python average_model_checkpoints.py
+```
+
 4. Run inference, you can check under output for more detailed break down
 ```bash
-python infer_ctc.py --model-path 
+python infer_ctc.py --model-path ./model_path/conformer_ctc_averged.ckpt
+```
+
+4.5 Run Inference on the RNNT model  (this can be adjusted with beam size, defaults to 2)
+```bash
+python infer_rnnt.py --beam-size 1 --use-beam
 ```
 
 # Model Summary Table
 
 | Model Name | Metric | Value (WER) | Download Link |
 | :--- | :--- | :--- | :--- |
-| **Conformer CTC Model** | Word Error Rate (WER) | 7.9 | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
-| **Language Model (LM)** | Word Error Rate (WER) | 7.1| [Link TBD] |
-| **Conformer RNN-T Model** | Word Error Rate (WER) | [Pending Evaluation] | [Link TBD] |
+| **Conformer CTC Model** | Word Error Rate (WER) | 7.22  | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
+| **CTC + Language Model (LM)** | Word Error Rate (WER) | 6.16 | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
+| **Conformer RNN-T Model Beam Size 1** | Word Error Rate (WER) | 6.76 | [Google Drive Link](https://drive.google.com/file/d/1As92LO_U-9Q4mZQqIACejbS5qttS0wgl/view?usp=sharing) |
+| **Conformer RNN-T Model Beam Size 2** | Word Error Rate (WER) | 6.7 | [Google Drive Link](https://drive.google.com/file/d/1As92LO_U-9Q4mZQqIACejbS5qttS0wgl/view?usp=sharing) |
 
 
