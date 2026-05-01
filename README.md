@@ -64,8 +64,9 @@ python infer_rnnt.py --beam-size 1 --use-beam
 ```
 
 # Model Summary Table
+- For WER lower is better and its over a 100
 
-| Model Name | Metric | Value (WER) | Download Link |
+| Model Name | Metric | Value (WER 100%) | Download Link |
 | :--- | :--- | :--- | :--- |
 | **Conformer CTC Model** | Word Error Rate (WER) | 7.22  | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
 | **CTC + Language Model (LM)** | Word Error Rate (WER) | 6.16 | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
