@@ -1,9 +1,30 @@
 # Revolab ASR Train Malay
 - Code base for ASR Finetune and Inference using nemo and conformer
 
-# Prerequiest
+# Prerequisite
 ```
 pip install -r requirements.txt
+```
+
+- Install KENLM (Optional)
+```bash
+sudo apt-get update
+sudo apt-get install -y build-essential cmake libboost-all-dev zlib1g-dev libbz2-dev liblzma-dev
+
+# Clone the official repository
+git clone https://github.com/kpu/kenlm.git
+cd kenlm
+
+# Create a build directory
+mkdir -p build
+cd build
+
+# Run CMake and Compile
+cmake ..
+make -j$(nproc)
+
+# (Optional) Install binaries to your system path
+sudo make install
 ```
 
 # Steps 
