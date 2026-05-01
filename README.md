@@ -70,6 +70,6 @@ python infer_rnnt.py --beam-size 1 --use-beam
 | **Conformer CTC Model** | Word Error Rate (WER) | 7.22  | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
 | **CTC + Language Model (LM)** | Word Error Rate (WER) | 6.16 | [Google Drive Link](https://drive.google.com/file/d/1LDp1O_Yq38f636b1hsm5hix-YctPEHm2/view?usp=drive_link) |
 | **Conformer RNN-T Model Beam Size 1** | Word Error Rate (WER) | 6.76 | [Google Drive Link](https://drive.google.com/file/d/1As92LO_U-9Q4mZQqIACejbS5qttS0wgl/view?usp=sharing) |
-| **Conformer RNN-T Model Beam Size 2** | Word Error Rate (WER) | 6.7 | [Google Drive Link](https://drive.google.com/file/d/1As92LO_U-9Q4mZQqIACejbS5qttS0wgl/view?usp=sharing) |
+| **Conformer RNN-T Model Beam Size 2** | Word Error Rate (WER) | 6.70 | [Google Drive Link](https://drive.google.com/file/d/1As92LO_U-9Q4mZQqIACejbS5qttS0wgl/view?usp=sharing) |
 
 
