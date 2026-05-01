@@ -73,3 +73,9 @@ python infer_rnnt.py --beam-size 1 --use-beam
 | **Conformer RNN-T Model Beam Size 2** | Word Error Rate (WER) | 6.70 | [Google Drive Link](https://drive.google.com/file/d/1As92LO_U-9Q4mZQqIACejbS5qttS0wgl/view?usp=sharing) |
 
 
+# Optional Adding in submission style for kaggle
+```bash
+cd submission
+
+cp ../models/conformer_ctc.ckpt ./model/
+```
