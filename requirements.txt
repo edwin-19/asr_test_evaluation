@@ -5,3 +5,4 @@ pytorch-lightning
 torchmetrics
 soundfile
 torchaudio
+werpy
