@@ -3,7 +3,7 @@
 - Using 2 types of decoder
     - CTC
     - RNNT
-    
+
 # Prerequisite
 ```
 pip install -r requirements.txt
@@ -41,9 +41,14 @@ python process_dataset.py
 python process_asr_tokenizer.py --manifest data/magic_data/train_sample.json --data_root ./tokenizer/ --vocab_size=64  --tokenizer="spe" --spe_bos --spe_eos
 ```
 
-3. Train Acoustic Model
+3. Train Acoustic Model can be ctc or RNNT
+- Adjust in the config files for dataset path and tokenizer path
 ```bash
-python train_ctc.py
+# Train CTC
+python train_ctc.py 
+
+# OR Train RNNT model
+# python train_rnnt.py
 ```
 
 3.5 Build KenLM, Optional (But you do need to install KenLM on your local)
