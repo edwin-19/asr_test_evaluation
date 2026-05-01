@@ -87,13 +87,16 @@ def main(
     asr_model.to(device)
     asr_model.eval()
     
-    vocab = asr_model.tokenizer.vocab
-    decoder = build_ctcdecoder(
-        labels=vocab,
-        kenlm_model_path=kenlm_path,
-        alpha=0.6,  # Weight for KenLM (adjust based on performance)
-        beta=1.5,   # Weight for word count penalty
-    )
+    if decoder_type == 'kenlm':
+        vocab = asr_model.tokenizer.vocab
+        decoder = build_ctcdecoder(
+            labels=vocab,
+            kenlm_model_path=kenlm_path,
+            alpha=0.6,  # Weight for KenLM (adjust based on performance)
+            beta=1.5,   # Weight for word count penalty
+        )
+    else:
+        decoder = None
     
     manifest = read_json(data_path)
     all_pred = []

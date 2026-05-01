@@ -1,6 +1,9 @@
 # Revolab ASR Train Malay
 - Code base for ASR Finetune and Inference using nemo and conformer
-
+- Using 2 types of decoder
+    - CTC
+    - RNNT
+    
 # Prerequisite
 ```
 pip install -r requirements.txt
@@ -55,12 +58,12 @@ python average_model_checkpoints.py
 
 4. Run inference, you can check under output for more detailed break down
 ```bash
-python infer_ctc.py --model-path ./model_path/conformer_ctc_averged.ckpt
+python infer_ctc.py --decoder-type kenlm --data-path sample/meta.json
 ```
 
 4.5 Run Inference on the RNNT model  (this can be adjusted with beam size, defaults to 2)
 ```bash
-python infer_rnnt.py --beam-size 1 --use-beam
+python infer_rnnt.py --data-path sample/meta.json --use-beam --beam-size 2
 ```
 
 # Model Summary Table
