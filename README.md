@@ -78,4 +78,10 @@ python infer_rnnt.py --beam-size 1 --use-beam
 cd submission
 
 cp ../models/conformer-averaged.ckpt ./model/conformer-averaged.ckpt
+
+# add in any extra packages on the wheel file (in this case nemo toolkit)
+pip wheels nemo_toolkit[asr] -w wheels/
+
+# Optional zip -r submission_2.zip inference.py model wheels
+python inference.py
 ```
