@@ -5,5 +5,4 @@ data/
 __pycache__/
 .vscode/
 wheels/
-submission/model/tokenizer/
 submission/model/conformer-averaged.ckpt
